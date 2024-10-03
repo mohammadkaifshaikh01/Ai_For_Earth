@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { IconCrossStroked } from "@douyinfe/semi-icons";
-import SimpleCanvas from "../components/SimpleCanvas";
+// import { IconCrossStroked } from "@douyinfe/semi-icons";
+// import SimpleCanvas from "../components/SimpleCanvas";
 import Navbar from "../components/Navbar";
-import { diagram } from "../data/heroDiagram";
+// import { diagram } from "../data/heroDiagram";
 import mysql_icon from "../assets/mysql.png";
 import postgres_icon from "../assets/postgres.png";
 import sqlite_icon from "../assets/sqlite.png";
@@ -14,7 +14,7 @@ import github from "../assets/github.png";
 import screenshot from "../assets/screenshot.png";
 import FadeIn from "../animations/FadeIn";
 import axios from "axios";
-import { languages } from "../i18n/i18n";
+// import { languages } from "../i18n/i18n";
 import { Tweet } from "react-tweet";
 
 function shortenNumber(number) {
@@ -31,13 +31,13 @@ export default function LandingPage() {
   useEffect(() => {
     const fetchStats = async () => {
       await axios
-        .get("https://api.github-star-counter.workers.dev/user/drawdb-io")
+        .get("https://api.github-star-counter.workers.dev/user/Schema Sketch-io")
         .then((res) => setStats(res.data));
     };
 
     document.body.setAttribute("theme-mode", "light");
     document.title =
-      "drawDB | Online database diagram editor and SQL generator";
+      "Schema Sketch | Online database diagram editor and SQL generator";
 
     fetchStats();
   }, []);
@@ -110,7 +110,7 @@ export default function LandingPage() {
             </div>
             <div className="text-center mb-4">
               <div className="text-5xl md:text-3xl font-bold text-sky-800">
-                {shortenNumber(languages.length)}
+                {/* {shortenNumber(languages.length)} */}
               </div>
               <div className="ms-1 mt-1 font-medium tracking-wide">
                 Languages
@@ -122,7 +122,7 @@ export default function LandingPage() {
                 better, support us by donating.
               </div>
               <a
-                href="https://buymeacoffee.com/drawdb"
+                href="https://buymeacoffee.com/Schema Sketch"
                 className="inline-block bg-white hover:bg-zinc-50 transition-all duration-300 rounded-full px-9 py-2.5 shadow mt-2"
               >
                 Support us{" "}
@@ -172,7 +172,7 @@ export default function LandingPage() {
             More than just an editor
           </div>
           <div className="text-2xl mt-1 font-medium text-center">
-            What drawDB has to offer
+            What Schema Sketch has to offer
           </div>
           <div className="grid grid-cols-3 gap-8 mt-10 md:grid-cols-2 sm:grid-cols-1">
             {features.map((f, i) => (
@@ -201,14 +201,14 @@ export default function LandingPage() {
           data-theme="light"
           className="grid grid-cols-2 place-items-center md:grid-cols-1"
         >
-          <Tweet id="1816111365125218343" />
-          <Tweet id="1817933406337905021" />
-          <Tweet id="1785457354777006524" />
-          <Tweet id="1776842268042756248" />
+          <Tweet id="1841798504345436313" />
+          <Tweet id="1841798504345436313" />
+          <Tweet id="1841798504345436313" />
+          <Tweet id="1841798504345436313" />
         </div>
       </div>
 
-      {/* Contact us */}
+      Contact us
       <svg
         viewBox="0 0 1440 54"
         fill="none"
@@ -233,7 +233,7 @@ export default function LandingPage() {
           <div className="md:block md:space-y-3 flex gap-3 justify-center">
             <a
               className="inline-block"
-              href="https://github.com/drawdb-io/drawdb"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -246,7 +246,7 @@ export default function LandingPage() {
             </a>
             <a
               className="inline-block"
-              href="https://discord.gg/BrjZgNrmR6"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -259,7 +259,7 @@ export default function LandingPage() {
             </a>
             <a
               className="inline-block"
-              href="https://x.com/drawdb_"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -271,12 +271,12 @@ export default function LandingPage() {
           </div>
           <div className="my-8">
             <div>
-              If you&apos;re finding drawDB useful and would like to help us in
+              If you&apos;re finding Schema Sketch useful and would like to help us in
               improving and adding new features, consider making a donation.
             </div>
             <div>Your support means a lot to us!</div>
             <a
-              href="https://buymeacoffee.com/drawdb"
+              // href="https://buymeacoffee.com/Schema Sketch"
               className="inline-block bg-white hover:bg-zinc-50 transition-all duration-300 rounded-full px-16 py-2.5 shadow mt-2"
             >
               Support us{" "}
@@ -292,7 +292,7 @@ export default function LandingPage() {
       </div>
       <hr className="border-zinc-300" />
       <div className="text-center text-sm py-3">
-        &copy; 2024 <strong>drawDB</strong> - All right reserved.
+        &copy; 2024 <strong>Schema Sketch</strong> - All right reserved.
       </div>
     </div>
   );
