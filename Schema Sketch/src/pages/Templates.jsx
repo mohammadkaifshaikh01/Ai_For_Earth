@@ -5,7 +5,7 @@ import { IconDeleteStroked } from "@douyinfe/semi-icons";
 import { db } from "../data/db";
 import { useLiveQuery } from "dexie-react-hooks";
 import Thumbnail from "../components/Thumbnail";
-import logo_light from "../assets/logo_light_160.png";
+import logo_light from "../assets/Schema-removebg-preview dark.png";
 import template_screenshot from "../assets/template_screenshot.png";
 
 export default function Templates() {
