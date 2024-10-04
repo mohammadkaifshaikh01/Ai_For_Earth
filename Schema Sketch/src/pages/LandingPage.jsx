@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { IconCrossStroked } from "@douyinfe/semi-icons";
-// import SimpleCanvas from "../components/SimpleCanvas";
+import { IconCrossStroked } from "@douyinfe/semi-icons";
+import SimpleCanvas from "../components/SimpleCanvas";
 import Navbar from "../components/Navbar";
-// import { diagram } from "../data/heroDiagram";
+import { diagram } from "../data/heroDiagram";
 import mysql_icon from "../assets/mysql.png";
 import postgres_icon from "../assets/postgres.png";
 import sqlite_icon from "../assets/sqlite.png";
@@ -14,7 +14,7 @@ import github from "../assets/github.png";
 import screenshot from "../assets/screenshot.png";
 import FadeIn from "../animations/FadeIn";
 import axios from "axios";
-// import { languages } from "../i18n/i18n";
+
 import { Tweet } from "react-tweet";
 
 function shortenNumber(number) {
@@ -88,44 +88,45 @@ export default function LandingPage() {
 {/* Hero End */}
 
 
+
       {/* Learn more */}
       <div id="learn-more">
         <div className="bg-zinc-100 py-10 px-28 md:px-8">
           <div className="flex justify-center items-center gap-28 md:block">
             <div className="text-center mb-4">
               <div className="text-5xl md:text-3xl font-bold text-sky-800">
-                {shortenNumber(stats.stars)}
+                {shortenNumber(5)}
               </div>
               <div className="ms-1 mt-1 font-medium tracking-wide">
-                GitHub stars
+                Team Members 
               </div>
+              <div className="ms-1 mt-1 font-medium tracking-wide">
+               Team Leader  : Mohammad Kaif 
+              </div>
+              <div className="ms-1 mt-1 font-medium tracking-wide">
+               Members  : Sayan Roy  , Prakash Singh , Anand Kumar , Aarohi Singh
+              </div>
+           
             </div>
             <div className="text-center mb-4">
               <div className="text-5xl md:text-3xl font-bold text-sky-800">
-                {shortenNumber(stats.forks)}
+                {shortenNumber(5)}
               </div>
               <div className="ms-1 mt-1 font-medium tracking-wide">
-                GitHub forks
+                Project Collaborator
               </div>
             </div>
-            <div className="text-center mb-4">
-              <div className="text-5xl md:text-3xl font-bold text-sky-800">
-                {/* {shortenNumber(languages.length)} */}
-              </div>
-              <div className="ms-1 mt-1 font-medium tracking-wide">
-                Languages
-              </div>
-            </div>
+           
             <div className="w-96 md:w-full h-full md:text-center">
               <div>
                 Join our community, become one of us. Help us become bigger and
                 better, support us by donating.
               </div>
               <a
-                href="https://buymeacoffee.com/Schema Sketch"
+                href="#"
                 className="inline-block bg-white hover:bg-zinc-50 transition-all duration-300 rounded-full px-9 py-2.5 shadow mt-2"
               >
-                Support us{" "}
+                Contact us{" "}
                 <i className="ms-2 text-rose-600 fa-regular fa-heart"></i>
               </a>
             </div>
@@ -199,16 +200,15 @@ export default function LandingPage() {
         </div>
         <div
           data-theme="light"
-          className="grid grid-cols-2 place-items-center md:grid-cols-1"
-        >
-          <Tweet id="1841798504345436313" />
-          <Tweet id="1841798504345436313" />
-          <Tweet id="1841798504345436313" />
-          <Tweet id="1841798504345436313" />
+          className="grid grid-cols-2 place-items-center md:grid-cols-1">
+         
+          <Tweet id="1842205978621833484" />
+          <Tweet id="1842205563062743121" />
+          <Tweet id="1842204264942465098" />
+         
         </div>
       </div>
 
-      Contact us
       <svg
         viewBox="0 0 1440 54"
         fill="none"
@@ -233,7 +233,7 @@ export default function LandingPage() {
           <div className="md:block md:space-y-3 flex gap-3 justify-center">
             <a
               className="inline-block"
-              href="#"
+              href="https://github.com/mohammadkaifshaikh01/Ai_For_Earth"
               target="_blank"
               rel="noreferrer"
             >
@@ -271,15 +271,15 @@ export default function LandingPage() {
           </div>
           <div className="my-8">
             <div>
-              If you&apos;re finding Schema Sketch useful and would like to help us in
+              If you are finding Schema Sketch useful and would like to help us in
               improving and adding new features, consider making a donation.
             </div>
             <div>Your support means a lot to us!</div>
             <a
-              // href="https://buymeacoffee.com/Schema Sketch"
+              href="#"
               className="inline-block bg-white hover:bg-zinc-50 transition-all duration-300 rounded-full px-16 py-2.5 shadow mt-2"
             >
-              Support us{" "}
+              Contact us{" "}
               <i className="ms-2 text-rose-600 fa-regular fa-heart"></i>
             </a>
           </div>
@@ -292,7 +292,7 @@ export default function LandingPage() {
       </div>
       <hr className="border-zinc-300" />
       <div className="text-center text-sm py-3">
-        &copy; 2024 <strong>Schema Sketch</strong> - All right reserved.
+        &copy; 2024 <strong>Schema Sketch</strong> - Masai School.
       </div>
     </div>
   );
