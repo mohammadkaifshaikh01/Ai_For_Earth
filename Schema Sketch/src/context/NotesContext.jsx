@@ -1,38 +1,37 @@
 import { createContext, useState } from "react";
-import { Action, ObjectType, defaultBlue } from "../data/constants";
+import { Action, ObjectType, defaultNoteTheme } from "../data/constants";
 import { useUndoRedo, useTransform, useSelect } from "../hooks";
 import { Toast } from "@douyinfe/semi-ui";
 import { useTranslation } from "react-i18next";
 
-export const AreasContext = createContext(null);
+export const NotesContext = createContext(null);
 
-export default function AreasContextProvider({ children }) {
+export default function NotesContextProvider({ children }) {
   const { t } = useTranslation();
-  const [areas, setAreas] = useState([]);
+  const [notes, setNotes] = useState([]);
   const { transform } = useTransform();
-  const { selectedElement, setSelectedElement } = useSelect();
   const { setUndoStack, setRedoStack } = useUndoRedo();
+  const { selectedElement, setSelectedElement } = useSelect();
 
-  const addArea = (data, addToHistory = true) => {
+  const addNote = (data, addToHistory = true) => {
     if (data) {
-      setAreas((prev) => {
+      setNotes((prev) => {
         const temp = prev.slice();
         temp.splice(data.id, 0, data);
         return temp.map((t, i) => ({ ...t, id: i }));
       });
     } else {
-      const width = 200;
-      const height = 200;
-      setAreas((prev) => [
+      const height = 88;
+      setNotes((prev) => [
         ...prev,
         {
           id: prev.length,
-          name: `area_${prev.length}`,
-          x: transform.pan.x - width / 2,
+          x: transform.pan.x,
           y: transform.pan.y - height / 2,
-          width,
+          title: `note_${prev.length}`,
+          content: "",
+          color: defaultNoteTheme,
           height,
-          color: defaultBlue,
         },
       ]);
     }
@@ -41,29 +40,29 @@ export default function AreasContextProvider({ children }) {
         ...prev,
         {
           action: Action.ADD,
-          element: ObjectType.AREA,
-          message: t("add_area"),
+          element: ObjectType.NOTE,
+          message: t("add_note"),
         },
       ]);
       setRedoStack([]);
     }
   };
 
-  const deleteArea = (id, addToHistory = true) => {
+  const deleteNote = (id, addToHistory = true) => {
     if (addToHistory) {
-      Toast.success(t("area_deleted"));
+      Toast.success(t("note_deleted"));
       setUndoStack((prev) => [
         ...prev,
         {
           action: Action.DELETE,
-          element: ObjectType.AREA,
-          data: areas[id],
-          message: t("delete_area", areas[id].name),
+          element: ObjectType.NOTE,
+          data: notes[id],
+          message: t("delete_note", { noteTitle: notes[id].title }),
         },
       ]);
       setRedoStack([]);
     }
-    setAreas((prev) =>
+    setNotes((prev) =>
       prev.filter((e) => e.id !== id).map((e, i) => ({ ...e, id: i })),
     );
     if (id === selectedElement.id) {
@@ -76,8 +75,8 @@ export default function AreasContextProvider({ children }) {
     }
   };
 
-  const updateArea = (id, values) => {
-    setAreas((prev) =>
+  const updateNote = (id, values) => {
+    setNotes((prev) =>
       prev.map((t) => {
         if (t.id === id) {
           return {
@@ -91,10 +90,10 @@ export default function AreasContextProvider({ children }) {
   };
 
   return (
-    <AreasContext.Provider
-      value={{ areas, setAreas, updateArea, addArea, deleteArea }}
+    <NotesContext.Provider
+      value={{ notes, setNotes, updateNote, addNote, deleteNote }}
     >
       {children}
-    </AreasContext.Provider>
+    </NotesContext.Provider>
   );
 }
