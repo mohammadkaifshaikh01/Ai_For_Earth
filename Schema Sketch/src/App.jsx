@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import Editor from "./pages/Editor";
+import Survey from "./pages/Survey";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Shortcuts from "./pages/Shortcuts";
+import Templates from "./pages/Templates";
+import LandingPage from "./pages/LandingPage";
+import SettingsContextProvider from "./context/SettingsContext";
+import { useSettings } from "./hooks";
 
+
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <SettingsContextProvider>
+      <BrowserRouter>
+        <RestoreScroll />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/editor"
+            element={
+              <ThemedPage>
+                <Editor />
+              </ThemedPage>
+            }
+          />
+          <Route
+            path="/survey"
+            element={
+              <ThemedPage>
+                <Survey />
+              </ThemedPage>
+            }
+          />
+          <Route
+            path="/shortcuts"
+            element={
+              <ThemedPage>
+                <Shortcuts />
+              </ThemedPage>
+            }
+          />
+        
+          <Route path="/templates" element={<Templates />} />
+        
+        </Routes>
+      </BrowserRouter>
+    </SettingsContextProvider>
+  );
 }
 
-export default App
+function ThemedPage({ children }) {
+  const { setSettings } = useSettings();
+
+  useLayoutEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      setSettings((prev) => ({ ...prev, mode: "dark" }));
+      const body = document.body;
+      if (body.hasAttribute("theme-mode")) {
+        body.setAttribute("theme-mode", "dark");
+      }
+    } else {
+      setSettings((prev) => ({ ...prev, mode: "light" }));
+      const body = document.body;
+      if (body.hasAttribute("theme-mode")) {
+        body.setAttribute("theme-mode", "light");
+      }
+    }
+  }, [setSettings]);
+
+  return children;
+}
+
+function RestoreScroll() {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, [location.pathname]);
+  return null;
+}

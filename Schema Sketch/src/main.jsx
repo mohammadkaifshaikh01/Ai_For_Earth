@@ -1,10 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import ReactDOM from "react-dom/client";
+import { LocaleProvider } from "@douyinfe/semi-ui";
+import { Analytics } from "@vercel/analytics/react";
+import App from "./App.jsx";
+import en_US from "@douyinfe/semi-ui/lib/es/locale/source/en_US";
+import "./index.css";
+// import "./i18n/i18n.js";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <LocaleProvider locale={en_US}>
     <App />
-  </StrictMode>,
-)
+    <Analytics />
+  </LocaleProvider>,
+);
