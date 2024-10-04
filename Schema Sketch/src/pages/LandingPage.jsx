@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { IconCrossStroked } from "@douyinfe/semi-icons";
-// import SimpleCanvas from "../components/SimpleCanvas";
+
 import Navbar from "../components/Navbar";
-// import { diagram } from "../data/heroDiagram";
+
 import mysql_icon from "../assets/mysql.png";
 import postgres_icon from "../assets/postgres.png";
 import sqlite_icon from "../assets/sqlite.png";
@@ -14,7 +13,7 @@ import github from "../assets/github.png";
 import screenshot from "../assets/screenshot.png";
 import FadeIn from "../animations/FadeIn";
 import axios from "axios";
-// import { languages } from "../i18n/i18n";
+
 import { Tweet } from "react-tweet";
 
 function shortenNumber(number) {
