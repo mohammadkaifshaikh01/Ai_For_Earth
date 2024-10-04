@@ -64,6 +64,8 @@ export default function DiagramContextProvider({ children }) {
     }
   };
 
+  // #delete
+
   const deleteTable = (id, addToHistory = true) => {
     if (addToHistory) {
       Toast.success(t("table_deleted"));
