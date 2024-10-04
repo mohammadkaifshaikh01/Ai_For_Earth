@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /*
-   * Workaround to allow proper bottom positioning for fixed
-   * elements in mobile browsers with collapsing url bars:
-   * https://stackoverflow.com/a/17555766/1137077
-   */
+
   :root,
   html,
   body {
