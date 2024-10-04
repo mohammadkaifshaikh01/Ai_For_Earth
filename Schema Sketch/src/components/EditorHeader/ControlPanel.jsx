@@ -12,7 +12,7 @@ import {
   IconShareStroked,
 } from "@douyinfe/semi-icons";
 import { Link, useNavigate } from "react-router-dom";
-import icon from "../../assets/icon_dark_64.png";
+import icon from "../../assets/Schema-removebg-preview dark.png";
 import {
   Button,
   Divider,
