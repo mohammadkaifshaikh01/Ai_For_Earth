@@ -35,38 +35,28 @@ Ai_For_Earth/
     │   │   ├── EditorCanvas.jsx
     │   │   ├── EditorHeader.jsx
     │   │   ├── EditorSidePanel.jsx
-    │   │   ├── FloatingControls.jsx
     │   │   ├── LexicalEditor.jsx
     │   │   ├── Navbar.jsx
-    │   │   ├── SimpleCanvas.jsx
-    │   │   ├── Thumbnail.jsx
     │   │   └── Workspace.jsx
     │   ├── context/
     │   │   ├── AreasContext.jsx
     │   │   ├── CanvasContext.jsx
-    │   │   ├── DiagramContext.jsx
     │   │   ├── EnumsContext.jsx
     │   │   ├── LayoutContext.jsx
     │   │   ├── NotesContext.jsx
     │   │   ├── SaveStateContext.jsx
-    │   │   ├── SelectedContext.jsx
     │   │   ├── SettingsContext.jsx
     │   │   ├── TasksContext.jsx
-    │   │   ├── TransformContext.jsx
-    │   │   ├── TypesContext.jsx
     │   │   └── UndoRedoContext.jsx
     │   ├── hooks/
     │   │   ├── useAreas.js
     │   │   ├── useCanvas.js
-    │   │   ├── useDiagrams.js
-    │   │   ├── useEnums.js
     │   │   ├── useSaveState.js
     │   │   ├── useTasks.js
     │   │   ├── useUndoRedo.js
     │   ├── pages/
     │   │   ├── Editor.jsx
     │   │   ├── LandingPage.jsx
-    │   │   ├── Shortcuts.jsx
     │   │   └── Templates.jsx
     ├── templates/
     ├── utils/
@@ -76,6 +66,11 @@ Ai_For_Earth/
     ├── main.jsx
     └── package.json
 ```
+
+
+### **Deploy Link**
+- https://ai-for-earth-no4l.vercel.app/
+
 
 ### **Key Components**
 
